@@ -1,7 +1,3 @@
-/* Name: David Abramov
- * ID: 313528432
- * Group: 05
- */
 //included libraries
 #include "threadPool.h"
 #include <unistd.h>
