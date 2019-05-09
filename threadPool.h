@@ -1,7 +1,3 @@
-/* Name: David Abramov
- * ID: 313528432
- * Group: 05
- */
 #ifndef __THREAD_POOL__
 #define __THREAD_POOL__
 //included libraries
