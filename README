@@ -1,6 +1,6 @@
 Made by David Abramov.
 
-As part of and Operating Systems course I took during my 2nd year at Bar Ilan University, I was asked to implement a thread pool
+As part of the Operating Systems course I took during my 2nd year at Bar Ilan University, I was asked to implement a thread pool
 in C using POSIX threads for Unix/Linux.
 
 An implementation of a queue is also included, and two tests (with a main function running them) are included:
@@ -9,5 +9,5 @@ test1 and an info file about it
 
 test2 which is simpler than test1
 
-a makefile with targets (compile1 - compile with test1, compile2 - compile with test2 and run - run the last compiled version)
-is included.
+a makefile (targets: compile1 - compile with test1, compile2 - compile with test2, run - run the last compiled version)
+is also included.
