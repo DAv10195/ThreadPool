@@ -116,14 +116,12 @@ void* taskHandler(void* args)
 				pthread_mutex_unlock(lock);
 				break;
 			}
-			else //*mode == REG, case we're in regular mode, execute the Task and check if another is ready
-			{
-				task = (Task*) osDequeue(task_queue);	//extract task and execute it
-				pthread_mutex_unlock(lock);
-				task->computeFunc(task->params);
-				free(task);
-				pthread_mutex_lock(lock);
-			}
+			//*mode == REG, case we're in regular mode, execute the Task and check if another is ready
+			task = (Task*) osDequeue(task_queue);	//extract task and execute it
+			pthread_mutex_unlock(lock);
+			task->computeFunc(task->params);
+			free(task);
+			pthread_mutex_lock(lock);
 		}
 	}
 	return NULL;
