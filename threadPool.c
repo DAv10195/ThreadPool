@@ -41,7 +41,7 @@ void deAllocThreadPool(ThreadPool* tp)
 			{
 				free(osDequeue(queue));
 			}
-			free(tp->task_queue);
+			osDestroyQueue(tp->task_queue);
 			tp->task_queue = NULL;
 		}
 		if (tp->paramsForHandlers)
@@ -223,10 +223,10 @@ int tpInsertTask(ThreadPool* threadPool, void (*computeFunc) (void *), void* par
 		}
 		task->computeFunc = computeFunc;
 		task->params = param;
-		pthread_mutex_lock(&threadPool->lock);
+		pthread_mutex_lock(lock);
 		osEnqueue(threadPool->task_queue, (void*) task);	//add task to queue
 		pthread_cond_broadcast(&threadPool->cond_var);	//notify all handlers a task was added to queue
-		pthread_mutex_unlock(&threadPool->lock);
+		pthread_mutex_unlock(lock);
 		return SUCCESS;
 	}
 }
